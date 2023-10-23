@@ -1,0 +1,5 @@
+Abstract
+
+Title - Smart Mall Navigation.
+
+Smart Mall Navigation: "Revolutionizing Shopping with Web Systems" project seeks to revolutionize the mall shopping experience using Internet and Web Systems. It will provide an interactive web and mobile application that allows users to effortlessly find stores, services, and promotions in real time. The project encompasses user-friendly features, multilingual support, indoor navigation, and integration with mall management systems. Augmented reality and gamification will enhance user engagement, while a testing phase and marketing efforts will ensure widespread adoption. The project's benefits include improved visitor experiences, increased business for retailers, and efficient mall management through data-driven decision-making and potential data monetization. With the right team, this project can transform malls into dynamic, data-driven hubs for visitors and retailers.
