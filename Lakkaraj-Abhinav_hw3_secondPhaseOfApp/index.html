@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Lakkaraj</title>
+    <style>
+        /* Set background color for the entire webpage */
+        body {
+            background-color: lightblue; /* Change the color to your desired background color */
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1 style=" text-align:center;">Abinav Lakkaraj Gym Workout Plan </h1>
+
+    <h2>About</h2>
+    <p>This is Abhinav Lakkaraj.</p>
+    <div class ="image-text">
+    <img src="gym.jpg" width="160" height="220">
+
+    <h2>WORKOUT</h2>
+    <ol>
+        <li>Push</li>
+        <li>Pull</li>
+        <li>Legs</li>
+    </ol>
+
+    <h2>Variations</h2>
+    <ul>
+        <li>Chest,Tricep,Shoulder</li>
+        <li>Back,Bicep</li>
+        <li>Legs</li>
+    </ul>
+
+    <h2>DAYS and WORKOUTS</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>PUSH</th>
+                <th>PULL</th>
+                <th>LEGS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>Wednesday</td>
+                <td>Saturday</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>Wednesday</td>
+                <td>Monday</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 20%; display: inline-block;">
+        <canvas id="chart1" width="50" height="100"></canvas>
+    </div>
+    <div style="width: 20%; display: inline-block;">
+        <canvas id="chart2" width="50" height="100"></canvas>
+    </div>
+    <div style="width: 20%; display: inline-block;">
+        <canvas id="chart3" width="50" height="100"></canvas>
+    </div>
+
+    <script>
+        // Data for the first pie chart
+        var data1 = {
+            labels: ['Chest', 'Shoulder', 'Tricep'],
+            datasets: [{
+                data: [30, 40, 30],
+                backgroundColor: ['red', 'blue', 'green']
+            }]
+        };
+
+        // Data for the second pie chart
+        var data2 = {
+            labels: ['Back', 'Bicep', 'Forearms'],
+            datasets: [{
+                data: [25, 35, 40],
+                backgroundColor: ['orange', 'purple', 'pink']
+            }]
+        };
+
+        // Data for the third pie chart
+        var data3 = {
+            labels: ['Glutes', 'Hamstring', 'Quads'],
+            datasets: [{
+                data: [15, 50, 35],
+                backgroundColor: ['brown', 'yellow', 'red']
+            }]
+        };
+
+        // Create the first pie chart
+        var ctx1 = document.getElementById('chart1').getContext('2d');
+        var chart1 = new Chart(ctx1, {
+            type: 'pie',
+            data: data1,
+        });
+
+        // Create the second pie chart
+        var ctx2 = document.getElementById('chart2').getContext('2d');
+        var chart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: data2,
+        });
+
+        // Create the third pie chart
+        var ctx3 = document.getElementById('chart3').getContext('2d');
+        var chart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: data3,
+        });
+    </script>
+<h1> Details of the customer </h1>
+    <form method="post" name='google-sheet' >
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        
+        <label for="name">Address:</label>
+        <input type="Address" id="Address" name="Address" required>
+        <br><br>
+ 
+        <label for="name">Country:</label>
+        <input type="Country" id="Country" name="Country" required>
+        <br><br>
+          
+        <label for="name">state:</label>
+        <input type="State" id="State" name="State" required>
+        <br><br>
+
+        <label for="name">Zip code:</label>
+        <input type="Zip Code" id="Zip code" name="Zip code" required>
+        <br><br>
+ 
+        <label for="name">City:</label>
+        <input type="City" id="City" name="City" required>
+        <br><br>
+
+        <label for="name">Blood Group:</label>
+        <input type="Blood Group" id="Blood Group" name="Blood Group" required>
+        <br><br>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+   <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwmFYvx7-aJqBrHqAaUAfWT3kcOa5VoFfinqAOsLBQ4-iNyaNuPeXozBA-QXgniyIaZ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Entering your Details ..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+
+</body>
+</html>
