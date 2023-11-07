@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form id="validationForm" onsubmit="validateForm(); return false;">
+    <label for="urlInput">URL:</label>
+    <input type="text" id="urlInput" name="urlInput" required><br><br>
+
+    <label for="emailInput">Email:</label>
+    <input type="text" id="emailInput" name="emailInput" required><br><br>
+
+    <label for="phoneInput">Phone Number:</label>
+    <input type="text" id="phoneInput" name="phoneInput" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function validateForm() {
+      const urlInput = document.getElementById("urlInput").value;
+      const emailInput = document.getElementById("emailInput").value;
+      const phoneInput = document.getElementById("phoneInput").value;
+
+      const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+      const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      const phoneRegex = /^(1-?)?(\([0-9]{3}\)|[0-9]{3})[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/;
+
+      const validFields = [];
+      const invalidFields = [];
+
+      if (urlRegex.test(urlInput)) {
+        validFields.push(`URL: ${urlInput}`);
+      } else {
+        invalidFields.push(`URL: ${urlInput}`);
+      }
+
+      if (emailRegex.test(emailInput)) {
+        validFields.push(`Email: ${emailInput}`);
+      } else {
+        invalidFields.push(`Email: ${emailInput}`);
+      }
+
+      if (phoneRegex.test(phoneInput)) {
+        validFields.push(`Phone Number: ${phoneInput}`);
+      } else {
+        invalidFields.push(`Phone Number: ${phoneInput}`);
+      }
+
+      const resultElement = document.getElementById("result");
+      resultElement.innerHTML = `Valid Fields: ${validFields.join(', ')}<br>Invalid Fields: ${invalidFields.join(', ')}`;
+    }
+  </script>
+</body>
+</html>
