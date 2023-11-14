@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 400px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin-bottom: 1em;
+            padding: 0.5em;
+        }
+
+        button {
+            padding: 0.5em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Signup</h1>
+    </header>
+    <section>
+        <form id="signupForm" onsubmit="return validateForm()">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" required>
+            
+            <label for="signupEmail">Email:</label>
+            <input type="text" id="signupEmail" required>
+            <span id="emailError" class="error-message"></span>
+
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" required>
+            <span id="passwordError" class="error-message"></span>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <script>
+        function validateForm() {
+            // Reset error messages
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("passwordError").textContent = "";
+
+            // Validate email
+            const email = document.getElementById("signupEmail").value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email address";
+                return false;
+            }
+
+            // Validate password
+            const password = document.getElementById("signupPassword").value;
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").textContent = "Password must be at least 8 characters long and include at least one letter and one number";
+                return false;
+            }
+
+            // If everything is valid, the form will be submitted
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+
+

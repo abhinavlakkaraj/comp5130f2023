@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <style>
+        /* Your existing styles remain unchanged */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Signup</h1>
+    </header>
+    <section>
+        <form id="signupForm" action="validation.php" onsubmit="return submitForm()">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" required>
+            
+            <label for="signupEmail">Email:</label>
+            <input type="text" id="signupEmail" required>
+            <span id="emailError" class="error-message"></span>
+
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" required>
+            <span id="passwordError" class="error-message"></span>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <script>
+        function submitForm() {
+            // Validate form
+            if (!validateForm()) {
+                return false;
+            }
+
+            // Prepare data for submission
+            const username = document.getElementById("signupUsername").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+
+            // Send data to server-side script using AJAX (in this case, using Fetch API)
+            fetch('process_signup.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server (you can update the UI or redirect the user)
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            // Prevent the default form submission
+            return false;
+        }
+
+        function validateForm() {
+            // Your existing validation logic
+        }
+    </script>
+</body>
+</html>
