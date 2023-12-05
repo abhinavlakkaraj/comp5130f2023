@@ -15,14 +15,14 @@
     <section>
         <form id="signupForm" action="validation.php" onsubmit="return submitForm()">
             <label for="signupUsername">Username:</label>
-            <input type="text" id="signupUsername" required>
+            <input type="text" id="signupUsername" name="username" required>
             
             <label for="signupEmail">Email:</label>
-            <input type="text" id="signupEmail" required>
+            <input type="text" id="signupEmail" name="email" required>
             <span id="emailError" class="error-message"></span>
 
             <label for="signupPassword">Password:</label>
-            <input type="password" id="signupPassword" required>
+            <input type="password" id="signupPassword" name="password" required>
             <span id="passwordError" class="error-message"></span>
 
             <button type="submit">Sign Up</button>
