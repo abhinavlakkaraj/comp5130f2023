@@ -1,0 +1,3 @@
+Name - Abhinav Lakkaraj 
+
+Abstract - This paper explores the transformative impact of smart mall navigation systems on the retail experience. Tracing the historical evolution and symbiotic relationship between technology and retail, the study dissects the components of smart navigation, delving into mobile apps, indoor positioning, interactive maps, personalized recommendations, queue management, and more. Real-world case studies exemplify successful implementations, while discussions on challenges and future directions provide a holistic perspective. The paper concludes by emphasizing the profound significance of smart mall navigation in revitalizing traditional retail spaces, offering an immersive blend of technology and tradition.
